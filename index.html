@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://js.puter.com/v2/"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        var require = {
+            paths: {
+                "vs": "./vendor/monaco-editor-0.44.0/min/vs"
+            }
+        };
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/goldenlayout.min.js" integrity="sha256-NhJAZDfGgv4PiB+GVlSrPdh3uc75XXYSM4su8hgTchI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-base.css" integrity="sha512-rGtzJyDE8egZ/OScuBNLW1EIhRydcfrZo14oTvZwRLzEZu+s8foCtwi0XhXsKnhuoQAwJ7POFARWdU4fBL7FbQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link id="judge0-golden-layout-light-theme-stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-light-theme.css" integrity="sha512-/S3N+v8cRHW2GJvM3v9FGHAKOhNgws+V1dYZb1fBxRd9XIwpqZFZB0jug+2HHf64eURsJLqVzCVn92pQTFHHow==" crossorigin="anonymous" referrerpolicy="no-referrer" disabled />
+    <link id="judge0-golden-layout-dark-theme-stylesheet" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-dark-theme.css" integrity="sha512-XfcBrEH69BhsZ0XpvPyzOLgikhAvIG6Znbi6yKi1Jh1iYaOXSXvljWFerhcUl5LYLCuV61KhfCydQ1+MNxnilg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="./vendor/monaco-editor-0.44.0/min/vs/loader.js"></script>
+    <script src="./vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.nls.js"></script>
+    <script src="./vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Add tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="js/ide.js"></script>
+    <script type="text/javascript" src="js/local_storage.js"></script>
+    <script type="text/javascript" src="js/query.js"></script>
+    <script type="text/javascript" src="js/style.js"></script>
+    <script type="text/javascript" src="js/ui.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/ide.css">
+
+    <title>Judge0 IDE - Free and open-source online code editor.</title>
+    <meta name="title" content="Judge0 IDE - Free and open-source online code editor.">
+    <meta name="description" content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
+    <meta name="keywords" content="online editor, online code editor, online ide, online compiler, online interpreter, run code online, learn programming online,
+    online debugger, programming in browser, online code runner, online code execution, debug online, debug C code online, debug C++ code online,
+    programming online, snippet, snippets, code snippet, code snippets, pastebin, execute code, programming in browser, run c online, run C++ online,
+    run java online, run python online, run ruby online, run c# online, run rust online, run pascal online, run basic online">
+
+    <meta property="og:url" content="https://ide.judge0.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Judge0 IDE - Free and open-source online code editor.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/judge0/ide/refs/heads/master/.github/wallpaper.png">
+    <meta property="og:image:alt" content="Judge0 IDE">
+    <meta property="og:description" content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
+    <meta property="og:site_name" content="Judge0 IDE">
+    <meta property="og:locale" content="en_US">
+
+    <meta property="twitter:url" content="https://ide.judge0.com">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Judge0 IDE - Free and open-source online code editor.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/judge0/ide/refs/heads/master/.github/wallpaper.png">
+    <meta property="twitter:description" content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
+
+    <link rel="icon" sizes="192x192" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="mask-icon" href="/favicon.ico" color="black" type="image/x-icon">
+</head>
+
+<body>
+    <div id="judge0-site-navigation" class="ui top attached inverted borderless mini menu">
+        <a id="judge0-header" href="https://judge0.com" target="_blank" class="header item judge0-hidden-for-minimal-style">
+            <img id="judge0-logo" src="./images/icon.png" />
+        </a>
+        <div class="ui simple dropdown item">
+            <span class="text">File</span>
+            <i class="dropdown icon"></i>
+            <div class="menu judge0-file-menu">
+                <div class="item" onclick="openAction()">
+                    <span class="description">+O</span>
+                    <span class="text">Open File...</span>
+                    <input type="file" id="open-file-input" style="display: none;">
+                </div>
+                <div class="item" onclick="saveAction()">
+                    <span class="description">+S</span>
+                    <span class="text">Save</span>
+                </div>
+            </div>
+        </div>
+        <div class="ui simple dropdown item">
+            <span class="text">Help</span>
+            <i class="dropdown icon"></i>
+            <div class="menu judge0-file-menu">
+                <a href="PRIVACY.md" class="link text item" target="_blank">Privacy Policy</a>
+                <a href="TERMS.md" class="link text item" target="_blank">Terms of Service</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ui input">
+                <select id="select-language" class="ui search selection dropdown"></select>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ui left icon transparent input">
+                <i class="flag icon"></i>
+                <input id="compiler-options" type="text" placeholder="Compiler options"></input>
+            </div>
+        </div>
+        <div class="item">
+            <div class="ui left icon transparent input">
+                <i class="terminal icon"></i>
+                <input id="command-line-arguments" type="text" placeholder="Command line arguments"></input>
+            </div>
+        </div>
+        <div class="item">
+            <button id="run-btn" class="ui primary labeled icon button" data-content="+↵" data-position="bottom center">
+                <i class="play icon"></i>Run Code
+            </button>
+        </div>
+        <div class="right menu">
+            <div id="judge0-theme-toggle-btn" class="icon link item" onclick="toggleThemeMode()" data-content="">
+                <i id="judge0-theme-toggle-btn-icon" class="sun icon"></i>
+            </div>
+            <a class="icon item judge0-hidden-for-minimal-style" href="https://platform.sulu.sh/apis/judge0" target="_blank" data-content="API Docs">
+                <i class="book icon"></i>
+            </a>
+            <a class="icon item judge0-hidden-for-minimal-style" href="https://github.com/judge0/ide/tree/master/embed" target="_blank" data-content="Embed">
+                <i class="code icon"></i>
+            </a>
+            <a class="icon item judge0-hidden-for-minimal-style" href="https://github.com/judge0/ide" target="_blank" data-content="GitHub Repository">
+                <i class="github icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <div id="judge0-site-content"></div>
+
+    <div id="judge0-site-modal" class="ui modal">
+        <div class="header">
+            <span id="title"></span>
+        </div>
+        <div class="scrolling content"></div>
+        <div class="actions">
+            <a id="report-problem-btn" class="ui labeled icon red button" href="https://github.com/judge0/ide/issues/new?title=New+bug+report&body=Describe+the+problem." target="_blank">
+                <i class="flag icon"></i>
+                Report Problem
+            </a>
+            <div class="ui labeled icon cancel secondary button">
+                <i class="close icon"></i>
+                Close (ESC)
+            </div>
+        </div>
+    </div>
+
+    <div id="judge0-status-line" class="ui bottom right attached mini label"></div>
+
+    <!-- <i class="copyright outline icon"></i>2016-2025 Judge0 d.o.o. – All Rights Reserved. -->
+</body>
+</html>
